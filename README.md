@@ -1,1 +1,0 @@
-"# segmentify-technical-task" 
