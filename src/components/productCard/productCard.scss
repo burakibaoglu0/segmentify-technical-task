@@ -1,0 +1,136 @@
+:host{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  padding: 1rem;
+  min-width: 25rem;
+  width: 25rem;
+  height: 40rem;
+
+  .product-image-area{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 15rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    flex: 0 0 auto;
+
+    .product-image{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 1rem;
+    }
+  }
+
+  .product-info{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 15rem;
+    overflow: hidden;
+    flex: 1 0 1px;
+    padding: 1rem 0;
+
+    .product-name{
+      width: 90%;
+      font-size: 1.4rem;
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 0 0 auto;
+      white-space: nowrap;
+      padding: 1rem;
+    }
+
+    .product-price{
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 2.4rem;
+      font-weight: bold;
+      width: 90%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 0 0 auto;
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: .5rem;
+    }
+
+    .shipping-fee{
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+      font-size: 1.2rem;
+      width: 90%;
+      flex: 0 0 auto;
+      padding: 1rem;
+
+      .shipping-fee-text{
+        font-size: 1.2rem;
+        font-weight: bold;
+        flex: 1 0 1px;
+      }
+
+      .shipping-fee-img{
+        flex: 0 0 auto;
+        color: green;
+      }
+    }
+  }
+
+  .add-to-cart{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 5rem;
+    flex: 0 0 auto;
+    background-color: var(--dark-blue);
+    border-radius: .5rem;
+    cursor: pointer;
+    color: #fff;
+    transition: all .3s ease-in-out;
+    font-size: 1.8rem;
+
+    &:hover{
+      background-color: var(--darken-blue);
+    }
+  }
+}

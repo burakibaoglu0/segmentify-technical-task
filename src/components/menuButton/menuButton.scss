@@ -1,0 +1,20 @@
+.menu-button {
+  font-size: inherit;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem;
+  border-bottom: .1rem solid #ddd;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out;
+  white-space: nowrap;
+
+  &:hover{
+    background-color: var(--light-blue);
+  }
+
+  &-active{
+    background-color: var(--light-blue);
+  }
+}

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+
+@import '/src/components/productContainer/productContainer.scss';
+@import '/src/components/menuButton/menuButton.scss';
+@import '/src/components/productCard/productCard.scss';
+
+:root {
+    --light-blue: #d9edff;
+    --dark-blue: #0063d4;
+    --darken-blue: #0015d4;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    background-color: #ddd;
+    position: relative;
+}
+
+#app {
+    width: 80%;
+    height: 80%;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "header"
+        "main";
+
+    .header {
+        grid-area: header;
+        font-size: 2.4rem;
+        font-weight: bold;
+        padding: 2rem;
+        border-bottom: .1rem solid #ddd;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .main {
+        grid-area: main;
+        display: grid;
+        display: -ms-grid;
+        grid-template-columns: 25% 75%;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "menu container";
+        overflow: hidden;
+
+        .product-menu {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            flex-flow: column nowrap;
+            grid-area: menu;
+            border-right: .1rem solid #ddd;
+            font-size: 1.4rem;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+
+            @media screen and (max-width: 1500px) {
+                flex-flow: row nowrap;
+                border-right: none;
+            }
+        }
+
+        @media screen and (max-width: 1500px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+            grid-template-areas:
+                "menu"
+                "container";
+        }
+    }
+
+    @media screen and (max-width: 1500px) {
+        width: 90%;
+        height: 90%;
+    }
+}
