@@ -1,0 +1,20 @@
+:host {
+  font-size: inherit;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem !important;
+  border-bottom: .1rem solid #ddd;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out;
+  white-space: nowrap;
+}
+
+:host(:hover) {
+  background-color: var(--light-blue);
+}
+
+:host(.active) {
+  background-color: var(--light-blue);
+}
