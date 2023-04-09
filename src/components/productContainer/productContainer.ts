@@ -35,8 +35,9 @@ class productContainer extends HTMLElement {
     fetchAndSetProducts(this.categoryName, (this.shadowRoot as ShadowRoot));
   }
 
+  
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    if (name === 'data-category-name') {
+    if (name === 'data-category-name' && oldValue && newValue) {
       this.categoryName = newValue;
       fetchAndSetProducts(this.categoryName, (this.shadowRoot as ShadowRoot));
     }
