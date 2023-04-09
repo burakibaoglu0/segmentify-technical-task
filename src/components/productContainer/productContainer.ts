@@ -1,13 +1,14 @@
 import {
   fetchAndSetProducts
 } from '../../ts/componentFunctions';
+import { CONTAINER_STYLE_URL } from '../../ts/config';
 
 const productContainerTemplate = document.createElement("template");
 productContainerTemplate.innerHTML = `
 <div class="product-row"></div>
 
 <style>
-@import url('http://${location.host}/src/components/productContainer/productContainer.scss');
+  @import url('${CONTAINER_STYLE_URL}');
 </style>
 `;
 

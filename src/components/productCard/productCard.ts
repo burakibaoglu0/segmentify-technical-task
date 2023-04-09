@@ -1,7 +1,9 @@
+import { CARD_STYLE_URL , PLACEHOLDER_IMAGE_URL } from '../../ts/config';
+
 const productCardTemplate = document.createElement("template");
 productCardTemplate.innerHTML = `
   <div class="product-image-area">
-    <img class="product-image" loading="lazy" />
+    <img class="product-image" loading="lazy" data-src="${PLACEHOLDER_IMAGE_URL}" alt="product-image">
   </div>
   <div class="product-info">
     <div class="product-name"> </div>
@@ -19,7 +21,7 @@ productCardTemplate.innerHTML = `
 
   <style>
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
-    @import url('http://${location.host}/src/components/productCard/productCard.scss');
+    @import url('${CARD_STYLE_URL}');
   </style>
 `;
 
@@ -52,6 +54,32 @@ class ProductCard extends HTMLElement {
       ((this.shadowRoot as ShadowRoot).querySelector('.shipping-fee-img') as HTMLElement).style.display = 'none';
     }
 
+    window.addEventListener('load', () => {
+      const waitImg = (counter:number) => {
+        if ((this.shadowRoot as ShadowRoot)?.querySelectorAll('img').length > 0) {
+          var imgElements = (this.shadowRoot as ShadowRoot)?.querySelectorAll('img');
+
+          for (var i = 0; i < imgElements.length; i++) {
+            var imgElement = imgElements[i] as HTMLImageElement;
+            var imgSrc = imgElement.getAttribute('data-src');
+      
+            var img = new Image();
+            img.onload = function () {
+              imgElement.src = imgSrc || '';
+            };
+            img.src = imgSrc || '';
+          }
+        } else if (counter < 50) {
+          setTimeout(() => {
+            waitImg(++counter)
+          }, 1000);
+        } else {
+          return;
+        }
+      }
+    
+      waitImg(0);
+    });
   }
 }
 
