@@ -1,11 +1,12 @@
 import { ICategories, IProduct, ICampaign } from './types';
+import { BASE_URL } from './config';
 
 export const fetchAndSetProducts = async (categoryName: string, shadowRoot: ShadowRoot) => {
   const productRow = shadowRoot?.querySelector('.product-row') as HTMLElement;
   productRow.innerHTML = '';
 
   try {
-    const response = await fetch(`${import.meta.env.BASE_URL}/src/db/product-list.json`);
+    const response = await fetch(`${BASE_URL}`);
     const data: ICampaign = await response.json();
     const productList = data.responses[0][0].params.recommendedProducts[`${categoryName}`];
 
@@ -27,7 +28,7 @@ export const fetchAndSetProducts = async (categoryName: string, shadowRoot: Shad
 
 export const fetchAndSetCategories = async () => {
   try {
-    const response = await fetch(`${import.meta.env.BASE_URL}/src/db/product-list.json`);
+    const response = await fetch(`${BASE_URL}`);
     const data: ICampaign = await response.json();
     let categoires: Array<ICategories> = [];
 

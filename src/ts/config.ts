@@ -1,1 +1,1 @@
-const BASE_URL = process.env.NODE_ENV === 'production' ? 'https://segmentify-technical-task.vercel.app' : '';
+export const BASE_URL = process.env.NODE_ENV === 'production' ? 'https://segmentify-technical-task.vercel.app/db/product-list.json' : '/public/db/product-list.json';
