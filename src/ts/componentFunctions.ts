@@ -59,16 +59,3 @@ export const fetchAndSetCategories = async () => {
     console.log(error);
   }
 };
-
-export const waitComponentStyles = async (styleUrl: string, shadowRoot: ShadowRoot) => {
-  shadowRoot.host.classList.add('d-none');
-
-  fetch(`${styleUrl}`)
-  .then(response => {
-    if (response.ok) {
-      shadowRoot.host.classList.remove('d-none');
-    }
-  })
-  .catch(error => console.log(error));
-  
-}
