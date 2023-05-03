@@ -1,5 +1,5 @@
 import {
-    fetchAndSetCategories
+    fetchAndSetCategories , waitComponentStyles
 } from '../../ts/componentFunctions';
 import { BUTTON_STYLE_URL } from '../../ts/config';
 
@@ -34,6 +34,8 @@ class MenuButton extends HTMLElement {
         if(document.querySelector('product-container')?.getAttribute('data-category-name') === (this.shadowRoot as ShadowRoot).host.getAttribute('data-category-name')){
             (this.shadowRoot as ShadowRoot).host.classList.add('active');
         }
+
+        waitComponentStyles(BUTTON_STYLE_URL, (this.shadowRoot as ShadowRoot));
     }
 }
 

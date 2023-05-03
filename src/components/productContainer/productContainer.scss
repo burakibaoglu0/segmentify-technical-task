@@ -1,4 +1,4 @@
-:host{
+:host(#product-container){
   grid-area: container;
   display: grid;
   width: 100%;
@@ -6,11 +6,17 @@
   overflow: hidden;
 }
 
-:host *{
+:host(#product-container) *{
   box-sizing: border-box;
 }
 
-:host .product-row{
+:host(.d-none){
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+:host(#product-container) .product-row{
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;

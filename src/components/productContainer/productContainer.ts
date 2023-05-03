@@ -1,6 +1,6 @@
 import {
   fetchAndSetProducts
-} from '../../ts/componentFunctions';
+, waitComponentStyles} from '../../ts/componentFunctions';
 import { CONTAINER_STYLE_URL } from '../../ts/config';
 
 const productContainerTemplate = document.createElement("template");
@@ -34,6 +34,8 @@ class productContainer extends HTMLElement {
     this.categoryName = this.getAttribute('data-category-name') || '';
 
     fetchAndSetProducts(this.categoryName, (this.shadowRoot as ShadowRoot));
+
+    waitComponentStyles(CONTAINER_STYLE_URL, (this.shadowRoot as ShadowRoot));
   }
 
   

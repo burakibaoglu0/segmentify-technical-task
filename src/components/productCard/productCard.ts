@@ -1,4 +1,5 @@
 import { CARD_STYLE_URL , PLACEHOLDER_IMAGE_URL } from '../../ts/config';
+import { waitComponentStyles } from '../../ts/componentFunctions';
 
 const productCardTemplate = document.createElement("template");
 productCardTemplate.innerHTML = `
@@ -66,6 +67,8 @@ class ProductCard extends HTMLElement {
     if (this.getAttribute("fee") !== 'Ücretsiz Kargo') {
       ((this.shadowRoot as ShadowRoot).querySelector('.shipping-fee-img') as HTMLElement).style.display = 'none';
     }
+
+    waitComponentStyles(CARD_STYLE_URL, (this.shadowRoot as ShadowRoot));
   }
 }
 
