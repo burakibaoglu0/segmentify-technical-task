@@ -1,4 +1,4 @@
-:host{
+:host(.product-card){
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -12,6 +12,10 @@
   min-width: 25rem;
   width: 25rem;
   height: 40rem;
+}
+
+:host *{
+  box-sizing: border-box;
 }
 
 :host .product-image-area{
@@ -54,7 +58,7 @@
 }
 
 :host .product-info .product-name{
-  width: 90%;
+  width: 100%;
   font-size: 1.4rem;
   font-weight: bold;
   overflow: hidden;
@@ -75,7 +79,7 @@
   justify-content: flex-start;
   font-size: 2.4rem;
   font-weight: bold;
-  width: 90%;
+  width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   flex: 0 0 auto;
@@ -95,7 +99,7 @@
   justify-content: flex-start;
   gap: 1rem;
   font-size: 1.2rem;
-  width: 90%;
+  width: 100%;
   flex: 0 0 auto;
   padding: 1rem;
 }
@@ -127,7 +131,6 @@
   border-radius: .5rem;
   cursor: pointer;
   color: #fff;
-  transition: all .3s ease-in-out;
   font-size: 1.8rem;
 }
 

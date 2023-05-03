@@ -6,6 +6,7 @@ import { BUTTON_STYLE_URL } from '../../ts/config';
 const menuButtonTemplate = document.createElement('template');
 
 menuButtonTemplate.innerHTML = `
+    <span class="pseudo-element"></span>
     <span class="category-name"></span>
 
     <style>
