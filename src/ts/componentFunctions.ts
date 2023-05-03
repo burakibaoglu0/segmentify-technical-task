@@ -39,8 +39,8 @@ export const fetchAndSetCategories = async () => {
     });
 
     categoires.forEach(e => {
-      let menuButton = document.createElement('menu-button');
-      let buttonText = e.name.includes('> ') ? e.name.split('> ')[1] : e.name;
+      const menuButton = document.createElement('menu-button');
+      const buttonText = e.name.includes('>') ? e.name.split('>')[1].trim() : e.name;
       menuButton.setAttribute('data-category-name', buttonText);
 
       (document.querySelector('.product-menu') as HTMLElement).appendChild(menuButton);
@@ -50,8 +50,8 @@ export const fetchAndSetCategories = async () => {
           element instanceof HTMLElement ? element.classList.remove('active') : null;
         });
 
-        menuButton.classList.add('active')
-        let container = document.getElementById('product-container') as HTMLElement;
+        menuButton.classList.add('active');
+        const container = document.getElementById('product-container') as HTMLElement;
         container.setAttribute('data-category-name', e.name);
       });
     });
