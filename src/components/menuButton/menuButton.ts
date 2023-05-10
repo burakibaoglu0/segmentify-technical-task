@@ -7,8 +7,9 @@ const menuButtonTemplate = document.createElement('template');
 
 menuButtonTemplate.innerHTML = `
     <span class="pseudo-element"></span>
-    <span class="category-name"></span>
-
+    <div class="category-name">
+        <span></span>
+    </div>
     <style>
         @import url('${BUTTON_STYLE_URL}');
     </style>
@@ -26,7 +27,7 @@ class MenuButton extends HTMLElement {
 
     connectedCallback() {
         (this.shadowRoot as ShadowRoot).host.classList.add('menu-button')
-        const span = this.shadowRoot?.querySelector('.category-name') as HTMLElement;
+        const span = this.shadowRoot?.querySelector('.category-name span') as HTMLElement;
         span.innerText = this.getAttribute('data-category-name') || '';
 
         (this.shadowRoot as ShadowRoot)

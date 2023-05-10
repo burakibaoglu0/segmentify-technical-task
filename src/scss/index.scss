@@ -64,6 +64,10 @@ body {
         align-items: center;
         justify-content: flex-start;
         height: 8rem;
+
+        @media screen and (max-width: 991px) {
+            padding: 0 2rem;
+          }
     }
 
     .main {
@@ -90,14 +94,30 @@ body {
             overflow: auto;
             padding: 1rem 1rem 0 0;
             gap: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: rgb(207, 207, 207) #f0f0f0;
 
-            @media screen and (max-width: 1500px) {
+            &::-webkit-scrollbar {
+                height: 4px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: #f0f0f0;
+            }
+    
+            &::-webkit-scrollbar-thumb {
+                background-color: rgb(207, 207, 207);
+            }
+
+            @media screen and (max-width: 991px) {
                 flex-flow: row nowrap;
                 border-right: none;
+                padding: 0 2rem;
+                border-bottom: 1px solid #f0f0f0;
             }
         }
 
-        @media screen and (max-width: 1500px) {
+        @media screen and (max-width: 991px) {
             grid-template-columns: 1fr;
             grid-template-rows: auto 1fr;
             grid-template-areas:
@@ -106,8 +126,7 @@ body {
         }
     }
 
-    @media screen and (max-width: 1500px) {
+    @media screen and (max-width: 991px) {
         width: 90%;
-        height: 90%;
     }
 }
