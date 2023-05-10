@@ -1,5 +1,6 @@
 import { ICategories, IProduct, ICampaign } from './types';
 import { BASE_URL } from './config';
+import Toastify from 'toastify-js';
 
 export const fetchAndSetProducts = async (categoryName: string, shadowRoot: ShadowRoot) => {
   const productRow = shadowRoot?.querySelector('.product-row') as HTMLElement;
@@ -59,3 +60,15 @@ export const fetchAndSetCategories = async () => {
     console.log(error);
   }
 };
+
+export const createToastify = (node: Node) => {
+  Toastify({
+    node,
+    duration: 1e3,
+    close: true,
+    gravity: 'bottom',
+    position: window.innerWidth < 992 ? 'center' : 'right',
+    stopOnFocus: true,
+    className: "seg-info-popup"
+  }).showToast();
+}

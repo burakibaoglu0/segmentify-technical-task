@@ -1,4 +1,5 @@
-import { CARD_STYLE_URL , PLACEHOLDER_IMAGE_URL } from '../../ts/config';
+import { CARD_STYLE_URL , PLACEHOLDER_IMAGE_URL, CHECKMARK_ICON_URL } from '../../ts/config';
+import { createToastify } from '../../ts/componentFunctions';
 
 const productCardTemplate = document.createElement("template");
 productCardTemplate.innerHTML = `
@@ -66,6 +67,22 @@ class ProductCard extends HTMLElement {
     if (this.getAttribute("fee") !== 'Ücretsiz Kargo') {
       ((this.shadowRoot as ShadowRoot).querySelector('.shipping-fee-img') as HTMLElement).style.display = 'none';
     }
+
+    const atcButton = this.shadowRoot?.querySelector('.add-to-cart') as HTMLDivElement;
+    atcButton.addEventListener('click', () => {
+      const toastifyContent = document.createElement('div');
+      toastifyContent.classList.add('seg-info-popup-content');
+
+      toastifyContent.innerHTML = `
+        <img class="seg-info-popup-icon" src="${CHECKMARK_ICON_URL}" />
+        <div class="seg-info-popup-texts">
+          <span>Ürün sepete eklendi.</span>
+          <span>Sepete Git</span>
+        </div>
+      `
+
+      createToastify(toastifyContent);
+    });
   }
 }
 

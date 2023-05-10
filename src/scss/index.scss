@@ -130,3 +130,40 @@ body {
         width: 90%;
     }
 }
+
+.seg-info-popup{
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    background: #1C232A !important;
+    border-radius: 8px !important;
+    font-size: 1.4rem;
+    width: 30rem;
+    max-width: unset !important;
+    padding: 2rem !important;
+
+    .toast-close{
+        opacity: .8 !important;
+    }
+
+    .seg-info-popup-icon{
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+    .seg-info-popup-content{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .seg-info-popup-texts{
+        display: flex; 
+        flex-direction:column;
+
+        span:last-child{
+            color: #667fad;
+            font-size: 1.3rem;
+        }
+    }
+}
