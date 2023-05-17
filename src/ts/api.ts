@@ -14,7 +14,7 @@ export const fetchProductList = async (): Promise<ICampaign> => {
     productListData = data;
     return data;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     throw new Error('Failed to fetch product list');
   }
 };

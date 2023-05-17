@@ -38,7 +38,7 @@ const initSlider = (_productRow:HTMLElement) => {
       ]
     });
   }catch(err){
-    console.log(err);
+    //console.log(err);
   }
 }
 
@@ -64,7 +64,7 @@ export const fetchAndSetProducts = async (categoryName: string, shadowRoot: Shad
 
     initSlider(productRow);
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };
 
@@ -97,7 +97,7 @@ export const fetchAndSetCategories = async () => {
       });
     });
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };
 
@@ -130,16 +130,16 @@ export const loadImage = (imgSource: string, imgElement: HTMLImageElement): Prom
           imgElement.src = imgSource;
           resolve();
         } else {
-          reject(new Error('Image loading failed'));
+          reject(/*new Error('Image loading failed')*/);
         }
       })
       .catch((error) => {
-        reject(error);
+        reject(/*error*/);
       });
 
     setTimeout(() => {
       controller.abort();
-      reject(new Error('Image loading timed out'));
+      reject(/*new Error('Image loading timed out')*/);
     }, 3000);
   });
 
