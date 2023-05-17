@@ -1,10 +1,10 @@
-import { CARD_STYLE_URL , PLACEHOLDER_IMAGE_URL, CHECKMARK_ICON_URL } from '../../ts/config';
-import { createToastify } from '../../ts/componentFunctions';
+import urlConfig from '../../ts/config';
+import { createToastify, loadImage } from '../../ts/componentFunctions';
 
 const productCardTemplate = document.createElement("template");
 productCardTemplate.innerHTML = `
   <div class="product-image-area">
-    <img class="product-image" loading="lazy" src="${PLACEHOLDER_IMAGE_URL}" alt="product-image">
+    <img class="product-image" loading="lazy" src="${urlConfig.PLACEHOLDER_IMAGE_URL}" alt="product-image">
   </div>
   <div class="product-info">
     <div class="product-name"> </div>
@@ -22,11 +22,12 @@ productCardTemplate.innerHTML = `
 
   <style>
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
-    @import url('${CARD_STYLE_URL}');
+    @import url('${urlConfig.CARD_STYLE_URL}');
   </style>
 `;
 
 class ProductCard extends HTMLElement {
+  fetchCounter:number = 0;
   constructor() {
     super();
     this.attachShadow({
@@ -42,18 +43,7 @@ class ProductCard extends HTMLElement {
     const imgElement = this.shadowRoot?.querySelector('img') as HTMLImageElement;
     const imgSource = this.getAttribute('source') || '';
 
-    const loadImage = async () => {
-      try{
-        const resp = await fetch(`${imgSource}`);
-        if(resp.status === 200){
-          imgElement.src = imgSource;
-        }
-      }catch(err:any){
-        console.log(err.toString());
-      }
-    }
-    
-    loadImage();
+    loadImage(imgSource,imgElement);
 
     const nameElement = this.shadowRoot?.querySelector('.product-name') as HTMLDivElement;
     nameElement.innerText = this.getAttribute('name') || '';
@@ -69,12 +59,14 @@ class ProductCard extends HTMLElement {
     }
 
     const atcButton = this.shadowRoot?.querySelector('.add-to-cart') as HTMLDivElement;
-    atcButton.addEventListener('click', () => {
+    atcButton.addEventListener('click', (e) => {
+      e.stopImmediatePropagation();
+      e.stopPropagation();
       const toastifyContent = document.createElement('div');
       toastifyContent.classList.add('seg-info-popup-content');
 
       toastifyContent.innerHTML = `
-        <img class="seg-info-popup-icon" src="${CHECKMARK_ICON_URL}" />
+        <img class="seg-info-popup-icon" src="${urlConfig.CHECKMARK_ICON_URL}" />
         <div class="seg-info-popup-texts">
           <span>Ürün sepete eklendi.</span>
           <span>Sepete Git</span>

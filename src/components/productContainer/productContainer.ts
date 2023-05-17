@@ -1,14 +1,12 @@
-import {
-  fetchAndSetProducts
-} from '../../ts/componentFunctions';
-import { CONTAINER_STYLE_URL } from '../../ts/config';
+import { fetchAndSetProducts } from '../../ts/componentFunctions';
+import urlConfig from '../../ts/config';
 
 const productContainerTemplate = document.createElement("template");
 productContainerTemplate.innerHTML = `
 <div class="product-row"></div>
 
 <style>
-  @import url('${CONTAINER_STYLE_URL}');
+  @import url('${urlConfig.CONTAINER_STYLE_URL}');
 </style>
 `;
 

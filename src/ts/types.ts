@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    jQuery: any;
+  }
+}
+
 export interface ICategories{
   name: string
 }

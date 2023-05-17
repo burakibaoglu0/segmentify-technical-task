@@ -1,7 +1,5 @@
-import {
-    fetchAndSetCategories
-} from '../../ts/componentFunctions';
-import { BUTTON_STYLE_URL } from '../../ts/config';
+import { fetchAndSetCategories } from '../../ts/componentFunctions';
+import urlConfig from '../../ts/config';
 
 const menuButtonTemplate = document.createElement('template');
 
@@ -11,7 +9,7 @@ menuButtonTemplate.innerHTML = `
         <span></span>
     </div>
     <style>
-        @import url('${BUTTON_STYLE_URL}');
+        @import url('${urlConfig.BUTTON_STYLE_URL}');
     </style>
     `;
 

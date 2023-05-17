@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.16",
     "@types/node": "^18.15.11",
     "sass": "^1.61.0",
     "sass-loader": "^13.2.2",
@@ -16,7 +17,10 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
+    "@types/slick-carousel": "^1.6.37",
     "@types/toastify-js": "^1.11.1",
+    "jquery": "^3.7.0",
+    "slick-carousel": "^1.8.1",
     "toastify-js": "^1.12.0"
   }
 }
