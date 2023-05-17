@@ -133,7 +133,7 @@ export const loadImage = (imgSource: string, imgElement: HTMLImageElement): Prom
           reject(/*new Error('Image loading failed')*/);
         }
       })
-      .catch((error) => {
+      .catch((_error) => {
         reject(/*error*/);
       });
 
